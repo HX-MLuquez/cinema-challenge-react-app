@@ -1,70 +1,95 @@
-# Getting Started with Create React App
+# Desafío de código React: cinema-app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+El objetivo de este desafío de codificación es brindarle la oportunidad de mostrar su conocimiento y mostrarnos cómo trabaja en un proyecto de la vida real.
 
-## Available Scripts
+No lo obligamos intencionalmente a usar ninguna biblioteca en particular (que no sea React)
+para que no tenga que aprender algo nuevo solo para un desafío de código, pero tenga en cuenta que incluso cuando no esperamos una aplicación lista para producción, esperamos
+que pueda explicar por qué eligió esas dependencias/librerías para el trabajo.
+Además, tenga en cuenta no agregar funciones fuera del alcance de este desafío de código para que no termine invirtiendo más tiempo del necesario.
 
-In the project directory, you can run:
+## Introducción
 
-### `npm start`
+Su sala de cine local tiene una gran necesidad de atraer una nueva audiencia.
+Para hacer esto, le piden que cree una aplicación web simple que permita a los usuarios
+descubrir nuevas películas y buscarlas.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Dado que no tienen un servicio de back-end, la primera versión de la aplicación se creará
+utilizando la API pública:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+https://developers.themoviedb.org/3
 
-### `npm test`
+FAQ: https://www.themoviedb.org/documentation/api
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Características
 
-### `npm run build`
+El cine solicita las siguientes funciones para la primera versión
+Descubrir
+Al abrir la aplicación web, los usuarios deberían poder ver una lista de películas sugeridas por la aplicación y ordenadas por popularidad.
+La paginación no es necesaria para esta versión.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Referencia de la API: https://developers.themoviedb.org/3/discover/movie-discover
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Búsqueda
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+En la vista de descubrimiento, agregue una barra de búsqueda en la parte superior para permitir a los usuarios consultar información sobre películas.
+Si el campo de búsqueda está vacío, muestra los resultados del descubrimiento.
 
-### `npm run eject`
+- Referencia de la API: https://developers.themoviedb.org/3/search/search-movies
+  Filtrar por clasificación
+  La calificación es un valor entre 0 y 10.
+  Agrega un filtro de clasificación en forma de cinco estrellas como
+  https://dribbble.com/shots/1053518-Filters.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Al seleccionar una estrella, también deben seleccionarse todas las estrellas de la izquierda.
+El rango de cada estrella es 2, por lo que, si se selecciona la primera estrella, sólo deberían
+aparecer películas con calificación 0-2. Si se selecciona la segunda estrella, sólo deberían
+aparecer películas con una calificación de 2 a 4, y así sucesivamente.
+Si la estrella en la que se hizo clic es la actualmente activa, deshabilite el filtro.
+Haga este filtrado en el lado del cliente.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Campo de calificación en el modelo de película: `vote_average`
+  Vista de detalles
+  Al hacer clic, se debe mostrar una vista detallada, mostrando más información sobre la
+  película.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Diseño
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+No requerimos diseños asombrosos.
+Una interfaz de usuario limpia y mínima servirá.
 
-## Learn More
+Queremos ver las imágenes de películas proporcionadas por la API.
+https://dribbble.com/shots/1682568-Flixus-Homepage-WIP/attachments/266476 una
+sugerencia de diseño, pero tú decides.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Requisitos de desarrollo
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Usa `create-react-app` para este proyecto
+- Usar la última versión de React
+- Proporcionar todos los pasos necesarios para iniciar la aplicación
+  Entregables
+- El código base del proyecto se entregó de alguna manera (usted elige,
+  preferentemente en github.com).
+- Cualquier otra cosa que consideres importante para entender la aplicación.
+  PREGUNTAS MÁS FRECUENTES
+- ¿Necesito agregar pruebas?
+- No.
+- ¿Necesito usar alguna dependencia específica?
+- Aparte de `React`, usa lo que te resulte cómodo y lo que creas que es necesario para
+  este proyecto
+- ¿Qué tipo de funciones de React puedo usar?
+- No hay restricciones aquí, muéstranos lo que sabes. Nos encanta React y nos encanta
+  usar las funciones más recientes.
+- ¿Tengo que seguir los diseños?
+- No, siéntase libre de crear la interfaz de usuario como desee. Solo nos importa el código
 
-### Code Splitting
+## API data
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+1. Lo primero que debemos hacer es investigar en este caso la API asignada que nos brindará los datos.
+2 .Para ello usamos los enlaces compartidos y a modo de práctica realizamos peticiones desde los diferentes end-point que necesitaremos.
+3. Luego dejo el registro en algún archivo, como por ejemplo:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+archivo api_research.js
+```
+Allí dejo estas pruebas de la API a mano a modo de luego poder utilizar
